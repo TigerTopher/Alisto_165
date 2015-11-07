@@ -12,4 +12,4 @@ Arc 1
 * Two
 * Three
 
-(Click me)[www.youjizz.com]
+[Click me](www.youjizz.com)
