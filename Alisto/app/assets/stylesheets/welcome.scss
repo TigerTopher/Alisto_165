@@ -1,0 +1,25 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*CSS*/
+body{
+	background-color: #34495e!important;
+	}
+div.c-wrapper{
+    width: 80%; /* for example */
+    margin: auto;
+}
+
+.navbar-default .navbar-fnt {
+    color: #FFFFFF;
+}
+.navbar-default .navbar-backgrnd {
+    color: #CC3333;
+}
+.carousel-inner > .item > img, 
+.carousel-inner > .item > a > img{
+width: 45%; /* use this, or not */
+margin: auto;
+}
+
