@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'welcome/contactUs'
-  get 'welcome/index'
-  root 'welcome#index'
+  get 'static/index'
+  root 'static#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
