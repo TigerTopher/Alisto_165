@@ -4083,6 +4083,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-top-right-radius: 0;
 }
 .navbar {
+  background-color: #1a1a1a !important;
   position: relative;
   min-height: 50px;
   margin-bottom: 20px;
@@ -6869,7 +6870,7 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url(../img/header-bg.jpg);
+    background-image: url("header-bg.jpg");
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
