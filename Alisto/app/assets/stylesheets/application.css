@@ -3935,8 +3935,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a > img {
   max-width: none;
 }
+
+/*NAV BAR*/
+
 .nav-tabs {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid #ddd;
 }
 .nav-tabs > li {
   float: left;
@@ -3947,17 +3950,20 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   line-height: 1.42857143;
   border: 1px solid transparent;
   border-radius: 4px 4px 0 0;
+    color: #555;
 }
 .nav-tabs > li > a:hover {
   border-color: #eee #eee #ddd;
+  color: #555;
 }
+
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #555;
   cursor: default;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #fed136;
+  border: 3px solid #fed136;
   border-bottom-color: transparent;
 }
 .nav-tabs.nav-justified {
@@ -3975,6 +3981,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   top: auto;
   left: auto;
 }
+
 @media (min-width: 768px) {
   .nav-tabs.nav-justified > li {
     display: table-cell;
@@ -6738,6 +6745,51 @@ fieldset[disabled] .btn-primary.active {
     background-color: #fed136;
 }
 
+.btn-xl-report {
+    padding: 20px 40px;
+    border-color: #fed136;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #fed136;
+}
+
+.btn-xl-report:hover,
+.btn-xl-report:focus,
+.btn-xl-report:active,
+.btn-xl-report.active,
+.open .dropdown-toggle.btn-xl-report {
+    border-color: #f6bf01;
+    color: #fff;
+    background-color: #fec503;
+}
+
+.btn-xl-tell {
+    padding: 20px 40px;
+    border-color: #333;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #333;
+}
+
+.btn-xl-tell:hover,
+.btn-xl-tell:focus,
+.btn-xl-tell:active,
+.btn-xl-tell.active,
+.open .dropdown-toggle.btn-xl-tell {
+    border-color: #000;
+    color: #fff;
+    background-color: #222;
+}
+
+
 .btn-xl:hover,
 .btn-xl:focus,
 .btn-xl:active,
@@ -6877,7 +6929,7 @@ header {
     background-image: url("header-bg1.jpg");
     background-position: center center;
     background-repeat: none;
-    -webkit-background-size: cover;
+    -webkDit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
@@ -7474,4 +7526,16 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: #fed136;
 }
+.fa-stack        .fa.fa-circle-thin { color: #fed136 }
+.fa-stack        .fa.fa-circle { color: white}
+.fa-stack .fa.fa-user-secret{color: #fed136 }
+.fa-stack .fa.fa-users{ color: #fed136 }
+.fa-stack .fa.fa-map-marker{ color: #fed136 }
+.fa-stack .fa.fa-clock-o{ color: #fed136 }
 
+
+.fa-stack:hover .fa.fa-user-secret{color: white}
+.fa-stack:hover .fa.fa-users{ color: white }
+.fa-stack:hover .fa.fa-map-marker{ color: white }
+.fa-stack:hover .fa.fa-clock-o{ color: white }
+.fa-stack:hover .fa.fa-circle{opacity: 1.0; color: #fed136 };
