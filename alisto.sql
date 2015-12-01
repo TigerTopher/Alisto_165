@@ -1,7 +1,8 @@
-# NOTE: Text file lang muna for documentation purposes.
+/* NOTE: Text file lang muna for documentation purposes.
         85% yun, GC ako.
+*/
 
-CREATE TABLE Alisto.User
+CREATE TABLE Alisto.Users
 (
     id              INT             PRIMARY KEY,
     fname           VARCHAR(20)     not null,
@@ -11,7 +12,7 @@ CREATE TABLE Alisto.User
     password        VARCHAR(35)     not null,
     contact_person  INT             null,
     reports_issued  INT             not null
-#   contact_no (multivalued. see table Alisto.UserContactNum)
+--   contact_no (multivalued. see table Alisto.UserContactNum)
 );
 
 CREATE TABLE Alisto.ContactPerson
@@ -20,7 +21,7 @@ CREATE TABLE Alisto.ContactPerson
     fname           VARCHAR(20)     not null,
     lname           VARCHAR(20)     not null,
     email           VARCHAR(35)     null
-#   contact_no (multivalued. see table Alisto.UserContactNum)
+--   contact_no (multivalued. see table Alisto.UserContactNum)
 );
 
 CREATE TABLE Alisto.UserContactNum
@@ -54,5 +55,5 @@ CREATE TABLE Alisto.Syndicate
     id              INT             PRIMARY KEY,
     name            VARCHAR(50)     not null,
     overview        LONGTEXT        null
-#   report_count  (derived)
+--   report_count  (derived)
 );
