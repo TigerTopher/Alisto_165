@@ -23,6 +23,10 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+    </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,9 +63,7 @@
                     <li>
                         <a class="page-scroll" href="#services">Features</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#about">Quick Guide</a>
-                    </li>
+
                     <li>
                         <a class="page-scroll" href="#ReportACrime">Report-A-Crime</a>
                     </li>
@@ -103,7 +105,7 @@
 
 
     <!-- Services Section -->
-    <section id="services">
+    <section id="services" class="bg-light-gray">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -148,101 +150,6 @@
                     <h4 class="service-heading">Real-time Protection</h4>
                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
-
-
-
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-    <!-- About Section -->
-    <section id="about" class="bg-light-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Alisto in a Minute!</h2>
-                    <h3 class="section-subheading text-muted">Learn how to quickly use Alisto, your person security app in UP Diliman.</h3>
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="col-lg-12">
-                    <ul class="timeline">
-                        <li>
-                            <div class="timeline-image">
-                                <%= image_tag("about/1.jpg", class:"img-circle img-responsive") %>
-<!--                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">-->
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4></h4>
-                                    <h4 class="subheading">Report a Crime.</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                            <%= image_tag("about/2.jpg", class:"img-circle img-responsive") %>
-<!--                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt=""> -->
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4></h4>
-                                    <h4 class="subheading">Discover which route to take.</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-image">
-                                <%= image_tag("about/3.jpg", class:"img-circle img-responsive") %>
-<!--                            <img class="img-circle img-responsive" src="img/about/3.jpg" alt=""> -->
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4></h4>
-                                    <h4 class="subheading">Stay Informed and Up-to-date.</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                    <%= image_tag("about/4.jpg", class:"img-circle img-responsive") %>
-<!--                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt=""> -->
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4></h4>
-                                    <h4 class="subheading">Secure your loved ones.</h4>
-                                </div>
-                                <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <h4>Together
-                                    <br>We Can Secure
-                                    <br>The World!</h4>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
 
 
 
@@ -348,45 +255,25 @@
 
 
 
-
-
     <!-- Crime Map Section -->
-    <section id="CrimeMap" class="bg-light-gray">
+    <section id="CrimeMap" class="bg-light-gray" style="padding: 100px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Crime Map</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">E-Commerce</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Responsive Design</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Web Security</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
+                    <h3 class="section-subheading text-muted">Be informed of the latest Modis Operandi of the Most Common Crimes.</h3>
+                </div>     
             </div>
         </div>
+        </div>
     </section>
+
+    <div id="map" class="col-lg-12 bg-light-gray" style="height: 55%">
+    </div>
+
+    <div class="col-lg-12 bg-light" style="height: 5%"/>
+ 
+
 
     <!-- Portfolio Grid Section -->
     <section id="portfolio">
@@ -403,7 +290,7 @@
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-eye fa-3x"></i>
                             </div>
                         </div>
                         <%= image_tag("modus/besfren-gang.jpg",:class=>'img-responsive') %>
@@ -419,7 +306,7 @@
                     <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-eye fa-3x"></i>
                             </div>
                         </div>
                         <%= image_tag("modus/dura.jpg",:class=>'img-responsive') %>
@@ -434,7 +321,7 @@
                     <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-eye fa-3x"></i>
                             </div>
                         </div>
                         <%= image_tag("modus/laglag.jpg",:class=>'img-responsive') %>
@@ -449,7 +336,7 @@
                     <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-eye fa-3x"></i>
                             </div>
                         </div>
                         <%= image_tag("modus/pitas.jpg",:class=>'img-responsive') %>
@@ -464,7 +351,7 @@
                     <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-eye fa-3x"></i>
                             </div>
                         </div>
                         <%= image_tag("modus/salisi.jpg",:class=>'img-responsive') %>
@@ -479,7 +366,7 @@
                     <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-eye fa-3x"></i>
                             </div>
                         </div>
                         <%= image_tag("modus/tutok.bmp",:class=>'img-responsive') %>
@@ -555,7 +442,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">We are just three out of the many developers of the Alisto Team. <br>And now, we need your talents to push the Alisto initiative further.<br>Join us and together let's protect the people.</p>
+                    <p class="large text-muted">We are just three out of the future developers of the Alisto Team. <br>And now, we need your talents to push the Alisto initiative further.<br>Join us and together let's protect the people.</p>
                 </div>
             </div>
         </div>
@@ -888,6 +775,30 @@
     <!--
     <script src="js/agency.js"></script> -->
 
-</body>
 
+    <!-- Google Map Code -->
+    <script type="text/javascript">
+    function initMap() {
+      var myLatLng = {lat: 14.652053, lng: 121.0641486};
+      var mapOptions = {
+        zoom: 19,
+        minZoom: 16,
+        maxZoom: 21, 
+        center: myLatLng }
+      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: 'Hello World!'
+      });
+    }
+
+    </script>
+
+
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK-jjtKtnyP731lxgnwdcfDRFo8HsUtH0&callback=initMap">
+    </script>
+  </body>
 </html>
