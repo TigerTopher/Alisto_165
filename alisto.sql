@@ -1,7 +1,7 @@
 
 CREATE TABLE Alisto.Users
 (
-    id              INT             not null,
+    id              INT             not null    AUTO_INCREMENT,
     fname           VARCHAR(20)     not null,
     lname           VARCHAR(20)     not null,
     email           VARCHAR(35)     null,
@@ -17,11 +17,12 @@ CREATE TABLE Alisto.Users
 
 CREATE TABLE Alisto.ContactPerson
 (
-    id              INT             not null,
+    id              INT             not null    AUTO_INCREMENT,
     fname           VARCHAR(20)     not null,
     lname           VARCHAR(20)     not null,
     email           VARCHAR(35)     null,
-	PRIMARY KEY (id)
+	PRIMARY KEY (id),
+	INDEX contact_person (id)
 --   contact_no (multivalued. see table Alisto.UserContactNum)
 );
 
@@ -29,11 +30,12 @@ CREATE TABLE Alisto.UserContactNum
 (
     user_id         INT             PRIMARY KEY,
     num             VARCHAR(20)     PRIMARY KEY,
+    FOREIGN KEY (user_id)
 );
 
 CREATE TABLE Alisto.Area
 (
-	id				INT				not null,
+	id				INT				not null    AUTO_INCREMENT,
 	name			VARCHAR(20)		not null,
 	coordinate_x    DECIMAL         not null,
     coordinate_y    DECIMAL         not null,
@@ -45,7 +47,7 @@ CREATE TABLE Alisto.Area
 
 CREATE TABLE Alisto.Report
 (
-    id              INT             not null,
+    id              INT             not null    AUTO_INCREMENT,
 	reporter		INT				not null,
     title           VARCHAR(25)     not null,
 	area			INT				not null,
@@ -54,21 +56,23 @@ CREATE TABLE Alisto.Report
     date_issued     DATETIME        not null,
     full_report     LONGTEXT        null,
 	PRIMARY KEY (id),
+	FOREIGN KEY (reporter),
 	INDEX date_issued (date_issued DESC),
 	INDEX area (area ASC)
 );
 
 CREATE TABLE Alisto.Classifications
 (
-    id              INT             not null,
+    id              INT             not null    AUTO_INCREMENT,
     crime_name      VARCHAR(25)     not null,
     syndicate       INT             null,
 	PRIMARY KEY (id),
+	FOREIGN KEY (syndicate)
 );
 
 CREATE TABLE Alisto.Syndicate
 (
-    id              INT             not null,
+    id              INT             not null    AUTO_INCREMENT,
     name            VARCHAR(50)     not null,
     overview        LONGTEXT        null,
 	PRIMARY KEY (id),
