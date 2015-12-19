@@ -1,81 +1,107 @@
-
 CREATE TABLE Alisto.Users
 (
-    id              INT             not null    AUTO_INCREMENT,
-    fname           VARCHAR(20)     not null,
-    lname           VARCHAR(20)     not null,
-    email           VARCHAR(35)     null,
-    username        VARCHAR(35)     not null,
-    password        VARCHAR(35)     not null,
-    contact_person  INT             null,
-    reports_issued  INT             not null,
-	PRIMARY KEY (id),
-	INDEX fname (fname ASC),
-	INDEX lname (lname ASC)
---   contact_no (multivalued. see table Alisto.UserContactNum)
-);
+    id INT UNSIGNED not null AUTO_INCREMENT, -- :primary_key -- in rails, id as primary key is built in
+    fname VARCHAR(30) not null, -- :string
+    lname VARCHAR(35) not null, -- :string
+    email VARCHAR(35) null, -- :string
+    username VARCHAR(35) not null, -- :string
+    password CHAR(32) NOT NULL,-- md5 hash always gives 32 characters
+    contact_person INT null,
+    reports_issued INT not null DEFAULT 0,
+    PRIMARY KEY (id),
+    INDEX fname (fname ASC),
+    INDEX lname (lname ASC),
+    UNIQUE (username) 
+)engine=innodb;
+--contact_no (multivalued. see table Alisto.UserContactNum)
+-- rails generate scaffold Users fname:string lname:string email:string username:string password:string contact_person:references reports_issued:references
 
 CREATE TABLE Alisto.ContactPerson
 (
-    id              INT             not null    AUTO_INCREMENT,
-    fname           VARCHAR(20)     not null,
-    lname           VARCHAR(20)     not null,
-    email           VARCHAR(35)     null,
-	PRIMARY KEY (id),
-	INDEX contact_person (id)
---   contact_no (multivalued. see table Alisto.UserContactNum)
-);
+    id INT UNSIGNED not null AUTO_INCREMENT,
+    user_id INT UNSIGNED not null,
+    fname VARCHAR(30) not null,
+    lname VARCHAR(35) not null,
+    email VARCHAR(35) null,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id)
+    REFERENCES Users(id)
+    ON DELETE CASCADE
+)engine=innodb;
+-- contact_no (multivalued. see table Alisto.UserContactNum)
+
 
 CREATE TABLE Alisto.UserContactNum
 (
-    user_id         INT             PRIMARY KEY,
-    num             VARCHAR(20)     PRIMARY KEY,
+    user_id INT UNSIGNED not null AUTO_INCREMENT,
+    num VARCHAR(20),
+    PRIMARY KEY (user_id, num),
     FOREIGN KEY (user_id)
-);
+    REFERENCES Users(id)
+    ON DELETE CASCADE
+)engine=innodb;
 
 CREATE TABLE Alisto.Area
 (
-	id				INT				not null    AUTO_INCREMENT,
-	name			VARCHAR(20)		not null,
-	coordinate_x    DECIMAL         not null,
-    coordinate_y    DECIMAL         not null,
-	report_count	INT				not null,
-	PRIMARY KEY (id),
-	INDEX report_count (report_count DESC),
-	INDEX name (name ASC)
-);
+    id INT UNSIGNED not null AUTO_INCREMENT,
+    name VARCHAR(20) NOT NULL,
+    coordinate_x DECIMAL(11,8) NOT NULL, 
+    coordinate_y DECIMAL(10,8) NOT NULL,
+    report_count INT not null,
+    PRIMARY KEY (id),
+    INDEX report_count (report_count DESC),
+    INDEX name (name ASC)
+)engine=innodb;
 
 CREATE TABLE Alisto.Report
 (
-    id              INT             not null    AUTO_INCREMENT,
-	reporter		INT				not null,
-    title           VARCHAR(25)     not null,
-	area			INT				not null,
-    short_desc      TEXT            null,
-    classification  INT             not null,
-    date_issued     DATETIME        not null,
-    full_report     LONGTEXT        null,
-	PRIMARY KEY (id),
-	FOREIGN KEY (reporter),
-	INDEX date_issued (date_issued DESC),
-	INDEX area (area ASC)
-);
+    id INT UNSIGNED not null AUTO_INCREMENT,
+    reporter INT not null,
+    title VARCHAR(25) not null,
+    area INT not null,
+    short_desc TEXT null,
+    classification INT not null,
+    date_issued DATETIME not null,
+    full_report LONGTEXT null,
+    PRIMARY KEY (id),
+    INDEX date_issued (date_issued DESC),
+    INDEX area (area ASC)
+)engine=innodb;
 
-CREATE TABLE Alisto.Classifications
-(
-    id              INT             not null    AUTO_INCREMENT,
-    crime_name      VARCHAR(25)     not null,
-    syndicate       INT             null,
-	PRIMARY KEY (id),
-	FOREIGN KEY (syndicate)
-);
 
 CREATE TABLE Alisto.Syndicate
 (
-    id              INT             not null    AUTO_INCREMENT,
-    name            VARCHAR(50)     not null,
-    overview        LONGTEXT        null,
-	PRIMARY KEY (id),
-	INDEX name (name ASC)
+    id INT UNSIGNED not null AUTO_INCREMENT,
+    name VARCHAR(50) not null,
+    overview LONGTEXT null,
+    PRIMARY KEY (id),
+    INDEX name (name ASC)
 --   report_count  (derived)
-);
+)engine=innodb;
+
+CREATE TABLE Alisto.Classifications
+(
+    id INT UNSIGNED not null AUTO_INCREMENT,
+    crime_name VARCHAR(25) not null,
+    syndicate INT UNSIGNED null,
+    PRIMARY KEY (id),
+    FOREIGN KEY (syndicate)
+    REFERENCES Syndicate(id)
+    ON DELETE CASCADE
+)engine=innodb;
+
+
+delimiter //
+CREATE TRIGGER user_before_insert BEFORE INSERT ON Users
+FOR EACH ROW
+BEGIN
+    SET NEW.password = md5(NEW.password);
+END;
+//
+CREATE TRIGGER user_before_update BEFORE UPDATE ON Users
+FOR EACH ROW
+BEGIN
+    SET NEW.password = md5(NEW.password);
+END;
+//
+delimiter ;
