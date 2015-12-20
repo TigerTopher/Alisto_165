@@ -27,10 +27,10 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @user.reports_issued = 0
-    @user.password = "fuckerz123"
-    @user.password_confirmation = "fuckerz123"
     binding.pry
+    @user.password = params[:user][:password]
+    @user.password_confirmation = params[:user][:password_confirmation]
+    @user.reports_issued = 0
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -61,7 +61,8 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      flash[:success] = 'Todo was successfully destroyed.'
+      format.html { redirect_to users_url }
       format.json { head :no_content }
     end
   end

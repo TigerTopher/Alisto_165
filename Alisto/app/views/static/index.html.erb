@@ -1,44 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <!-- Bootstrap Core CSS -->
-    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-
-    <!-- Custom CSS -->
-    <!-- <link href="css/agency.css" rel="stylesheet"> -->
-
-    <!-- Custom Fonts -->
-    <!-- 
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    <style type="text/css">
-      html, body { height: 100%; margin: 0; padding: 0; }
-      #map { height: 100%; }
-    </style>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
 <body id="page-top" class="index">
-
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -78,15 +38,18 @@
                         <a class="page-scroll" href="#team">Team</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <%= link_to 'Login', users_path %>
                     </li>
+                    <li>
+                        <%=  link_to "Signup", :controller => "users", :action => "new"%>
+                    </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
-
 
     <!-- Header -->
     <header>
@@ -99,10 +62,6 @@
             </div>
         </div>
     </header>
-
-
-
-
 
     <!-- Services Section -->
     <section id="services" class="bg-light-gray">
@@ -150,9 +109,6 @@
                     <h4 class="service-heading">Real-time Protection</h4>
                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
-
-
-
             </div>
         </div>
     </section>
@@ -476,6 +432,7 @@
     </aside>
     
     <!-- Contact Section -->
+    <!--
     <section id="contact">
         <div class="container">
             <div class="row">
@@ -521,6 +478,7 @@
             </div>
         </div>
     </section>
+    -->
 
     <footer>
         <div class="container">
@@ -801,4 +759,3 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK-jjtKtnyP731lxgnwdcfDRFo8HsUtH0&callback=initMap">
     </script>
   </body>
-</html>
