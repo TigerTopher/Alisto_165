@@ -1,35 +1,117 @@
-<p id="notice"><%= notice %></p>
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top" class="bg-light-gray">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="../static/index#page-top">Alisto: UP Diliman</a>
+        </div>
 
-<h1>Listing Users</h1>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <%=  link_to "Home", :controller => "static", :action => "index"%>
+                </li>
+        <% if logged_in? %>
+                    <li><%= link_to "Profile", current_user %></li>
+                    <li class="divider"></li>
+                    <li>
+                    <%= link_to "Log out", logout_path, method: "delete" %>
+                    </li>
+        <% else %>
+          <li><%=  link_to "Signup", :controller => "users", :action => "new"%></li>
+        <% end %>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Fname</th>
-      <th>Lname</th>
-      <th>Email</th>
-      <th>Username</th>
-      <th>Reports issued</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<section class="bg-light-gray">
+  <div class="row text-center">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2 class="section-heading">This Page is Under COnstruction :)</h2>
+            <h3 class="section-subheading text-muted">Shhh. Don't tell anyone about this!</h3>
+        </div>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-lg-4">
+        <h4 class="section-subheading text-muted" style="color: #333;">Admins Only Here!</h4>
+    </div>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.fname %></td>
-        <td><%= user.lname %></td>
-        <td><%= user.email %></td>
-        <td><%= user.username %></td>
-        <td><%= user.reports_issued %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="col-lg-8" style="border-left: 1px solid #555; border-width:2px; ">
+    <p id="notice"><%= notice %></p>
+    <h1>Listing Users</h1>
 
-<br>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Fname</th>
+          <th>Lname</th>
+          <th>Email</th>
+          <th>Username</th>
+          <th>Reports issued</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<%= link_to 'New User', new_user_path %>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.fname %></td>
+            <td><%= user.lname %></td>
+            <td><%= user.email %></td>
+            <td><%= user.username %></td>
+            <td><%= user.reports_issued %></td>
+            <td><%= link_to 'Show', user %></td>
+            <td><%= link_to 'Edit', edit_user_path(user) %></td>
+            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New User', new_user_path %>
+      </div>
+      </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <span class="copyright">Copyright &copy; Alisto 2015 | Macababayao | Vizcarra</span>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline social-buttons">
+                    <li><a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline quicklinks">
+                    <li><a href="#">Privacy Policy</a>
+                    </li>
+                    <li><a href="#">Terms of Use</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

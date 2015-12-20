@@ -1,3 +1,4 @@
+
 <body id="page-top" class="index">
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -37,13 +38,20 @@
                     <li>
                         <a class="page-scroll" href="#team">Team</a>
                     </li>
+                    <% if logged_in? %>
+                        <li><%= link_to "Profile", current_user %></li>
+                        <li class="divider"></li>
+                        <li>
+                        <%= link_to "Log out", logout_path, method: "delete" %>
+                        </li>
+                    <% else %>
                     <li>
                         <%=  link_to "Login", :controller => "sessions", :action => "new"%>
                     </li>
                     <li>
                         <%=  link_to "Signup", :controller => "users", :action => "new"%>
                     </li>
-
+                    <% end %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
