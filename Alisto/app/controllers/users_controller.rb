@@ -1,3 +1,5 @@
+require 'pry'
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -25,7 +27,10 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+    @user.reports_issued = 0
+    @user.password = "fuckerz123"
+    @user.password_confirmation = "fuckerz123"
+    binding.pry
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
