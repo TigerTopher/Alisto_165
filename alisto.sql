@@ -1,4 +1,4 @@
--- with scaffold
+/* DDL For ALISTO*/
 CREATE TABLE Alisto.Users
 (
     id INT UNSIGNED not null AUTO_INCREMENT, -- :primary_key -- in rails, id as primary key is built in
@@ -14,9 +14,6 @@ CREATE TABLE Alisto.Users
     INDEX lname (lname ASC),
     UNIQUE (username) 
 )engine=innodb;
---rails g scaffold User fname:string lname:string email:string username:string reports_issued:integer
-
-
 --contact_no (multivalued. see table Alisto.UserContactNum)
 
 --with scaffold
@@ -46,19 +43,6 @@ CREATE TABLE Alisto.UserContactNum
     ON DELETE CASCADE
 )engine=innodb;
 
-CREATE TABLE Alisto.Area
-(
-    id INT UNSIGNED not null AUTO_INCREMENT,
-    name VARCHAR(20) NOT NULL,
-    min_x DECIMAL(11,8) NOT NULL, 
-    min_y DECIMAL(10,8) NOT NULL,
-    max_x DECIMAL(11,8) NOT NULL, 
-    max_y DECIMAL(10,8) NOT NULL,
-    report_count INT not null,
-    PRIMARY KEY (id),
-    INDEX report_count (report_count DESC),
-    INDEX name (name ASC)
-)engine=innodb;
 
 --Method 2: Specialization/Generalization.
 -- There are two types of report a.) Anonymous-Tip and b.) Report with Follow Up
@@ -66,22 +50,30 @@ CREATE TABLE Alisto.AnonReport
 (
     id INT UNSIGNED not null AUTO_INCREMENT,
     title VARCHAR(25) not null,
-    area INT not null,
+    -- area INT not null,
+    coordinate_x DECIMAL(11,8) NULL, 
+    coordinate_y DECIMAL(10,8) NULL,
     short_desc TEXT null,
     classification INT not null,
     date_issued DATETIME not null,
     full_report LONGTEXT null,
     PRIMARY KEY (id),
     INDEX date_issued (date_issued DESC),
-    INDEX area (area ASC)
+    -- INDEX area (area ASC)
 )engine=innodb;
 
+
+
+
+
+
+-- May Foreign keys dapat ito. Di mag-eexist ang report kung wala namang reporter. Kung wlang reporter, then Anonymous report siya...
 CREATE TABLE Alisto.Report
 (
     id INT UNSIGNED not null AUTO_INCREMENT,
-    reporter INT not null,
+    reporter_id INT UNSIGNED not null not null,
     title VARCHAR(25) not null,
-    area INT not null,
+    -- area INT not null,
     coordinate_x DECIMAL(11,8) NOT NULL, 
     coordinate_y DECIMAL(10,8) NOT NULL,
     short_desc TEXT null,
@@ -90,7 +82,9 @@ CREATE TABLE Alisto.Report
     full_report LONGTEXT null,
     PRIMARY KEY (id),
     INDEX date_issued (date_issued DESC),
-    INDEX area (area ASC)
+    PRIMARY KEY (id),
+    FOREIGN KEY (reporter_id) REFERENCES Users(id),
+    --INDEX area (area ASC)
 )engine=innodb;
 
 
