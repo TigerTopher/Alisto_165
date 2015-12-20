@@ -15,26 +15,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="hidden">
-                    <a href="#page-top"></a>
-                </li>
-
                 <li>
-                    <a class="page-scroll" href="../static/index#services">Features</a>
-                </li>
-
-                <li>
-                    <a class="page-scroll" href="../static/index#ReportACrime">Report-A-Crime</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="../static/index#CrimeMap">Crime Map</a>
-                </li>
-
-                <li>
-                    <a class="page-scroll" href="../static/index#portfolio">Modi Operandi</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="../static/index#team">Team</a>
+                    <%=  link_to "Home", :controller => "static", :action => "index"%>
                 </li>
 				<% if logged_in? %>
                     <li><%= link_to "Profile", current_user %></li>
@@ -44,7 +26,7 @@
                     <%= link_to "Log out", logout_path, method: "delete" %>
                     </li>
 				<% else %>
-					<li><%= link_to "Log in", login_path %></li>
+					<li><%=  link_to "Signup", :controller => "users", :action => "new"%></li>
 				<% end %>
             </ul>
         </div>
@@ -52,28 +34,59 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
-
-<section>
-<h1>Log in</h1>
+<<div class="row"></div>
+<<div class="row"></div>
+<<div class="row"></div>
+<<div class="row"></div>
+<section id="contact">
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-	<% flash.each do |message_type, message| %>
-	  <div class="alert alert-<%= message_type %>"><%= message %></div>
-	<% end %>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Login</h2>
+                <h3 class="section-subheading text-muted" style="color: white;">Login using your Alisto Account!</h3>
+            </div>
+        </div>
 
-    <%= form_for(:session, url: login_path) do |f| %>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="container-fluid col-lg-6">
+                <% flash.each do |message_type, message| %>
+                  <div class="alert alert-<%= message_type %>"><%= message %></div>
+                <% end %>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3"></div>
 
-      <%= f.label :username %>
-      <%= f.text_field :username, class: 'form-control' %>
+            <div class="col-lg-6 text-center">
+                <%= form_for(:session, url: login_path) do |f| %>
+                <div class="field form-group">
+                    <%= f.label "Username:", class: 'col-sm-4 control-label vertical-center', style: "color: #FEC503; font-size: 150%; text-align: right; display-table: cell; vertical-align: middle;"%>
+                    <div class="col-sm-8">
+                        <%= f.text_field :username, class: 'form-control', placeholder: "Your First Name"%>
+                    </div>
+                </div>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
-
-    <p>New user? <%=  link_to "Sign up now!", :controller => "users", :action => "new"%></p>
-  </div>
+                <div class="row" style="margin: 5px;"></div>
+                <div class="field form-group">
+                    <%= f.label "Password:", class: 'col-sm-4 control-label vertical-center', style: "color: #FEC503; font-size: 150%; text-align: right; display-table: cell; vertical-align: middle;"%>
+                    <div class="col-sm-8">
+                        <%= f.password_field :password, class: 'form-control', placeholder: "Your First Name"%>
+                    </div>
+                </div>
+                <div class="row" style="margin: 15px;"></div>
+                <div class="actions">
+                    <%= f.submit "Log in", :class=> "btn btn-xl" %>
+                </div>
+                <% end %>
+            <hr>
+            <%= link_to 'New User? Sign up now!', :style => "color: #FEC503", :controller => "users", :action => "new"%>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>
 </div>
 </section>
 
