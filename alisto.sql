@@ -17,15 +17,6 @@ CREATE TABLE Alisto.Users
 --rails g scaffold User fname:string lname:string email:string username:string reports_issued:integer
 
 
-
-
-
-
-
-
-
-
-
 --contact_no (multivalued. see table Alisto.UserContactNum)
 
 --with scaffold
@@ -69,6 +60,22 @@ CREATE TABLE Alisto.Area
     INDEX name (name ASC)
 )engine=innodb;
 
+--Method 2: Specialization/Generalization.
+-- There are two types of report a.) Anonymous-Tip and b.) Report with Follow Up
+CREATE TABLE Alisto.AnonReport
+(
+    id INT UNSIGNED not null AUTO_INCREMENT,
+    title VARCHAR(25) not null,
+    area INT not null,
+    short_desc TEXT null,
+    classification INT not null,
+    date_issued DATETIME not null,
+    full_report LONGTEXT null,
+    PRIMARY KEY (id),
+    INDEX date_issued (date_issued DESC),
+    INDEX area (area ASC)
+)engine=innodb;
+
 CREATE TABLE Alisto.Report
 (
     id INT UNSIGNED not null AUTO_INCREMENT,
@@ -87,7 +94,7 @@ CREATE TABLE Alisto.Report
 )engine=innodb;
 
 
-CREATE TABLE Alisto.Syndicate
+CREATE TABLE Alisto.Syndicates
 (
     id INT UNSIGNED not null AUTO_INCREMENT,
     name VARCHAR(50) not null,
@@ -101,14 +108,25 @@ CREATE TABLE Alisto.Classifications
 (
     id INT UNSIGNED not null AUTO_INCREMENT,
     crime_name VARCHAR(25) not null,
-    syndicate INT UNSIGNED null,
+    crime_details LONGTEXT not null,
     PRIMARY KEY (id),
-    FOREIGN KEY (syndicate)
-    REFERENCES Syndicate(id)
-    ON DELETE CASCADE
 )engine=innodb;
 
+-- many is to one
+-- many classification is to one syndicate
+-- partial participation since not all classifications are attributed to a syndicate
+-- If PARTIAL participation on the “many” side, you may create a separate schema to avoid NULL values.
+CREATE TABLE Alisto.ClassificationsToSyndicate
+(
+    id INT UNSIGNED not null AUTO_INCREMENT,
+    classification_id INT UNSIGNED not null,
+    syndicate_id INT UNSIGNED not null,
+    PRIMARY KEY (id),
+    FOREIGN KEY (classification_id) REFERENCES Classifications(id),
+    FOREIGN KEY (syndicate_id) REFERENCES Syndicates(id)
+)engine=innodb;
 
+-- contact_no (multivalued. see table Alisto.UserContactNum)
 delimiter //
 CREATE TRIGGER user_before_insert BEFORE INSERT ON Users
 FOR EACH ROW
