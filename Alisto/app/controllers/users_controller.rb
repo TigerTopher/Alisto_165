@@ -27,13 +27,14 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    binding.pry
+    # binding.pry
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
     @user.reports_issued = 0
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        flash[:success] = "Welcome to the Sample App!"
+        format.html { redirect_to @user} # , notice: 'User was successfully created.' } #redirect_to user_url(@user)
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
