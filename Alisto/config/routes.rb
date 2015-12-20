@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+  resources :users
   get 'static/index'
   root 'static#index'
   # The priority is based upon order of creation: first created -> highest priority.

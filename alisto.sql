@@ -1,9 +1,10 @@
+-- with scaffold
 CREATE TABLE Alisto.Users
 (
     id INT UNSIGNED not null AUTO_INCREMENT, -- :primary_key -- in rails, id as primary key is built in
     fname VARCHAR(30) not null, -- :string
     lname VARCHAR(35) not null, -- :string
-    email VARCHAR(35) null, -- :string
+    email VARCHAR(255) null, -- :string
     username VARCHAR(35) not null, -- :string
     password CHAR(32) NOT NULL,-- md5 hash always gives 32 characters
     contact_person INT null,
@@ -13,9 +14,21 @@ CREATE TABLE Alisto.Users
     INDEX lname (lname ASC),
     UNIQUE (username) 
 )engine=innodb;
---contact_no (multivalued. see table Alisto.UserContactNum)
--- rails generate scaffold Users fname:string lname:string email:string username:string password:string contact_person:references reports_issued:references
+--rails g scaffold User fname:string lname:string email:string username:string reports_issued:integer
 
+
+
+
+
+
+
+
+
+
+
+--contact_no (multivalued. see table Alisto.UserContactNum)
+
+--with scaffold
 CREATE TABLE Alisto.ContactPerson
 (
     id INT UNSIGNED not null AUTO_INCREMENT,
@@ -23,6 +36,7 @@ CREATE TABLE Alisto.ContactPerson
     fname VARCHAR(30) not null,
     lname VARCHAR(35) not null,
     email VARCHAR(35) null,
+    num VARCHAR(20) not null,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id)
     REFERENCES Users(id)
@@ -45,8 +59,10 @@ CREATE TABLE Alisto.Area
 (
     id INT UNSIGNED not null AUTO_INCREMENT,
     name VARCHAR(20) NOT NULL,
-    coordinate_x DECIMAL(11,8) NOT NULL, 
-    coordinate_y DECIMAL(10,8) NOT NULL,
+    min_x DECIMAL(11,8) NOT NULL, 
+    min_y DECIMAL(10,8) NOT NULL,
+    max_x DECIMAL(11,8) NOT NULL, 
+    max_y DECIMAL(10,8) NOT NULL,
     report_count INT not null,
     PRIMARY KEY (id),
     INDEX report_count (report_count DESC),
@@ -59,6 +75,8 @@ CREATE TABLE Alisto.Report
     reporter INT not null,
     title VARCHAR(25) not null,
     area INT not null,
+    coordinate_x DECIMAL(11,8) NOT NULL, 
+    coordinate_y DECIMAL(10,8) NOT NULL,
     short_desc TEXT null,
     classification INT not null,
     date_issued DATETIME not null,
