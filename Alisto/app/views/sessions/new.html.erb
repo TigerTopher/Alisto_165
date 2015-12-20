@@ -1,0 +1,106 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="../static/index#page-top">Alisto: UP Diliman</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+
+                <li>
+                    <a class="page-scroll" href="../static/index#services">Features</a>
+                </li>
+
+                <li>
+                    <a class="page-scroll" href="../static/index#ReportACrime">Report-A-Crime</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="../static/index#CrimeMap">Crime Map</a>
+                </li>
+
+                <li>
+                    <a class="page-scroll" href="../static/index#portfolio">Modi Operandi</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="../static/index#team">Team</a>
+                </li>
+				<% if logged_in? %>
+                    <li><%= link_to "Profile", current_user %></li>
+                    <li><%= link_to "Settings", '#' %></li>
+                    <li class="divider"></li>
+                    <li>
+                    <%= link_to "Log out", logout_path, method: "delete" %>
+                    </li>
+				<% else %>
+					<li><%= link_to "Log in", login_path %></li>
+				<% end %>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<section>
+<h1>Log in</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+	<% flash.each do |message_type, message| %>
+	  <div class="alert alert-<%= message_type %>"><%= message %></div>
+	<% end %>
+
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :username %>
+      <%= f.text_field :username, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+
+    <p>New user? <%=  link_to "Sign up now!", :controller => "users", :action => "new"%></p>
+  </div>
+</div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <span class="copyright">Copyright &copy; Alisto 2015 | Macababayao | Vizcarra</span>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline social-buttons">
+                    <li><a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline quicklinks">
+                    <li><a href="#">Privacy Policy</a>
+                    </li>
+                    <li><a href="#">Terms of Use</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

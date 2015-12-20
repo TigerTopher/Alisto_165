@@ -36,6 +36,9 @@
                 <li>
                     <a class="page-scroll" href="../static/index#team">Team</a>
                 </li>
+                <li>
+                    <%=  link_to "Login", :controller => "sessions", :action => "new"%>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -127,7 +130,7 @@
 			      </div>
 			    <% end %>
 			    <hr>
-			    <%= link_to 'Already Signed-Up? Login Here.', users_path, style: "color: #FEC503" %>
+			    <%= link_to 'Already Signed-Up? Login Here.', :style => "color: #FEC503", :controller => "sessions", :action => "new"%>
 			</div>
 	    	<div class="col-lg-3"></div>
 		</div>
