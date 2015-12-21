@@ -128,19 +128,27 @@
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Report a Crime</h2>
                     <h3 class="section-subheading text-muted">Feel free to choose between Anonymous Reporting or Followed-up Reporting</h3>
+
                 </div>
             </div>
 
             <div class="row text-center">
                 <div class="col-lg-4">
                     <h4 class="section-subheading text-muted" style="color: #333;">Fill up the form and we'll contact you in no time!</h4>
+                    <br>
+                    <%=link_to "View Anonymous Reports",  {:controller => "anon_reports", :action => "index"}, :class=>"btn btn-xl", :style=> "width: 100%;"%>
+                    <br>
+                    <br>
+                    <%=link_to "View All Reports",  {:controller => "syndicates", :action => "index"}, :class=>"btn btn-xl-report", :style=> "width: 100%"%>
+                    <br>
+                    <br>
+                    <%=link_to "View Crime Classifications",  {:controller => "classifications", :action => "index"}, :class=>"btn btn-xl-report", :style=> "width: 100%;"%>
                 </div>
 
                 <div class="col-lg-8" style="border-left: 1px solid #555; border-width:5px; ">
                     <ul class="nav nav-tabs">
                       <li class="active"><a data-toggle="tab" href="#home"><b>Anonymous Report</b></a></li>
                       <li><a data-toggle="tab" href="#menu1"><b>Report With Follow-Up</b></a></li>
-                      <li><a data-toggle=""><b>Abangan: Panic Button Report</b></a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -229,6 +237,7 @@
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Crime Map</h2>
                     <h3 class="section-subheading text-muted">Be informed of the latest Modi Operandus of the Most Common Crimes.</h3>
+                    <h3 class="section-heading">The red shades indicate areas of reported incidents<br>The darker the shade of an area is, the more reports it had received.</h3>
                 </div>     
             </div>
         </div>
@@ -251,7 +260,14 @@
                     <h3 class="section-subheading text-muted">Be informed of the latest crimes as the Philippine National Police list details about theese Modis Operandi.</h3>
                 </div>
             </div>
-
+            <div class="col-lg-12 text-center">
+                <%=link_to "View All Reported Syndicates",  {:controller => "syndicates", :action => "index"}, :class=>"btn btn-xl"%>
+            </div>
+            <div class="row"></div>
+            <br>
+            <br>
+            <br>
+            <br>
             <div class="row">
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
@@ -348,7 +364,6 @@
 
         </div>
     </section>
-
 
     <!-- Team Section -->
     <section id="team" class="bg-light-gray">
@@ -780,6 +795,7 @@
     <script type="text/javascript">
     function initMap() {
       var myLatLng = {lat: 14.651989, lng: 121.065445};
+      var report = "Hotspot";
       var mapOptions = {
         zoom: 19,
         minZoom: 16,
@@ -790,8 +806,20 @@
       var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title: 'Hello World!'
+        title: 'UP POLICE'
       });
+
+      var cityCircle = new google.maps.Circle({
+          strokeColor: '#FF0000',
+          strokeOpacity: 0.20,
+          strokeWeight: 1,
+          fillColor: '#FF0000',
+          fillOpacity: 0.14,
+          map: map,
+          center: {lat: 14.651989, lng: 121.065445},
+          radius: 40
+        });
+
     }
 
     </script>

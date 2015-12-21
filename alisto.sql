@@ -32,7 +32,7 @@ CREATE TABLE Alisto.ContactPerson
     ON DELETE CASCADE
 )engine=innodb;
 -- contact_no (multivalued. see table Alisto.UserContactNum)
-
+    
 
 CREATE TABLE Alisto.UserContactNum
 (
@@ -120,6 +120,7 @@ CREATE TABLE Alisto.ClassificationsToSyndicate
     FOREIGN KEY (classification_id) REFERENCES Classifications(id),
     FOREIGN KEY (syndicate_id) REFERENCES Syndicates(id)
 )engine=innodb;
+
 
 -- contact_no (multivalued. see table Alisto.UserContactNum)
 delimiter //

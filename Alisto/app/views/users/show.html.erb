@@ -12,21 +12,14 @@
             <a class="navbar-brand page-scroll" href="../static/index">Alisto: UP Diliman</a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="hidden">
-                    <a href="#page-top"></a>
-                </li>
-                <li>
-                    <%=  link_to "Home", :controller => "static", :action => "index"%>
-                </li>
                 <% if logged_in? %>
-                  <li><%= link_to "Profile", current_user %></li>
-                  <li class="divider"></li>
-                  <li>
-                  <%= link_to "Log out", logout_path, method: "delete" %>
-                  </li>
+                    <li><%= link_to "Home", current_user %></li>
+                    <li class="divider"></li>
+                    <li>
+                    <%= link_to "Log out", logout_path, method: "delete" %>
+                    </li>
                 <% else %>
                   <li><%=  link_to "Signup", :controller => "users", :action => "new"%></li>
                 <% end %>
@@ -36,7 +29,8 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
-<section>
+<section class="bg-light-gray">
+  <div 
   <% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
@@ -65,8 +59,7 @@
     <%= @user.reports_issued %>
   </p>
 
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-  <%= link_to 'Back', users_path %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
 </section>
     <footer>
         <div class="container">

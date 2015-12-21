@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   resources :users
+  
   get 'static/index'
+  get 'static/crime_map'
+  get 'crime_map'   => 'static#crime_map'
+
   root 'static#index'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
