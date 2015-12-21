@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reports
   resources :user_contact_nums
   resources :contact_people
   resources :reports

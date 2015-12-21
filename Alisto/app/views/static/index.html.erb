@@ -133,96 +133,30 @@
             </div>
 
             <div class="row text-center">
-                <div class="col-lg-4">
-                    <h4 class="section-subheading text-muted" style="color: #333;">Fill up the form and we'll contact you in no time!</h4>
+                <div class="col-lg-6">
+                    <h4 class="section-subheading text-muted" style="color: #333;">Select from Anonymous Reporting <strike>or Reporting with Follow Up</strike></h4>
                     <hr>
-                    <%=link_to "View Anonymous Reports",  {:controller => "anon_reports", :action => "index"}, :class=>"btn btn-xl", :style=> "width: 100%;"%>
+                    <br>
+                    <%=link_to "Report Anonymously",  {:controller => "anon_reports", :action => "new"}, :class=>"btn btn-xl", :style=> "width: 65%;"%>
                     <br>
                     <br>
-                    <%=link_to "View Crime Classifications",  {:controller => "classifications", :action => "index"}, :class=>"btn btn-xl-report", :style=> "width: 100%;"%>
                     <br>
-                    <br>
-                    <%=link_to "View Syndicates",  {:controller => "syndicates", :action => "index"}, :class=>"btn btn-xl-report", :style=> "width: 100%"%>
+                    Sorry, report with follow-up is under construction. Instead, you can report anonymously for the time being.
+                    <!--
+                    <%=link_to "Report with Follow-Up",  {:controller => "reports", :action => "new"}, :class=>"btn btn-xl-report", :style=> "width: 65%;"%> -->
+
                 </div>
 
-                <div class="col-lg-8" style="border-left: 1px solid #555; border-width:5px; ">
-                    <ul class="nav nav-tabs">
-                      <li class="active"><a data-toggle="tab" href="#home"><b>Anonymous Report</b></a></li>
-                      <li><a data-toggle="tab" href="#menu1"><b>Report With Follow-Up</b></a></li>
-                    </ul>
-
-                    <div class="tab-content">
-                      <div id="home" class="tab-pane fade in active">
-                        <h3>Anonymous Report</h3>
-                        <p>Report an incident anonymously. No commitments. No strings attached.</p>
-
-                        <form class="form-horizontal">
-                          <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                            <div class="col-sm-10">
-                              <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                            <div class="col-sm-10">
-                              <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"> Remember me
-                                </label>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                              <button type="submit" class="btn btn-default">Sign in</button>
-                            </div>
-                          </div>
-                        </form>
-
-                      </div>
-                      <div id="menu1" class="tab-pane fade">
-                        <h3>Report with Follow-Up</h3>
-                        <p>Report and incident. We'll contact you in no time.</p>
-
-                        <form class="form-horizontal">
-                          <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                            <div class="col-sm-10">
-                              <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                            <div class="col-sm-10">
-                              <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                              <div class="checkbox">
-                                <label>
-                                  <input type="checkbox"> Remember me
-                                </label>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                              <button type="submit" class="btn btn-default">Sign in</button>
-                            </div>
-                          </div>
-                        </form>
-
-                      </div>
-
-
-                    </div>
+                <div class="col-lg-6" style="border-left: 1px solid #555; border-width:5px; ">
+                    <h4 class="section-subheading text-muted" style="color: #333;">Or go check out Reports, Crime Classifications, and Syndicates</h4>
+                    <hr>
+                    <%=link_to "View Anonymous Reports",  {:controller => "anon_reports", :action => "index"}, :class=>"btn btn-xl", :style=> "width: 65%;"%>
+                    <br>
+                    <br>
+                    <%=link_to "View Crime Classifications",  {:controller => "classifications", :action => "index"}, :class=>"btn btn-xl-report", :style=> "width: 65%;"%>
+                    <br>
+                    <br>
+                    <%=link_to "View Syndicates",  {:controller => "syndicates", :action => "index"}, :class=>"btn btn-xl-report", :style=> "width: 65%"%>
                 </div>
             </div>
         </div>
@@ -239,7 +173,9 @@
                     <h3 class="section-subheading text-muted">Be informed of the latest Modi Operandus of the Most Common Crimes.</h3>
                     <h3 class="section-heading">The red shades indicate areas of reported incidents<br>The darker the shade of an area is, the more reports it had received.
                     <br><br>The green shades indicate area where you can easily find UP Police Security Team.</h3>
-                </div>     
+                    <br>
+                    <%=link_to "View Map in Full Page",  {:controller => "static", :action => "crime_map"}, :class=>"btn btn-xl-report", :style=> "width: 50%"%>
+                </div>  
             </div>
         </div>
         </div>

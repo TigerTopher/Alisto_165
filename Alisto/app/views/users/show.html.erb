@@ -80,6 +80,15 @@
 <div class="col-lg-9">
 <h2>My Reports</h2>
 <hr>
+<h4>Unfortunately, Report with follow-up is still underconstruction.<br>You might want to report anonymously for the time being.</h4>
+<br>
+<%=link_to "Report Anonymously",  {:controller => "anon_reports", :action => "new"}, :class=>"btn btn-xl", :style=> "width: 30%;"%>
+<br>
+<br>
+or
+<br>
+<br>
+<%=link_to "View Anonymous Reports",  {:controller => "anon_reports", :action => "index"}, :class=>"btn btn-xl", :style=> "width: 30%;"%>
 </div>
 </div>
 </section>

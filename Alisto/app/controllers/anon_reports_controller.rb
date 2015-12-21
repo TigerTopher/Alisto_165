@@ -25,7 +25,10 @@ class AnonReportsController < ApplicationController
   # POST /anon_reports.json
   def create
     @anon_report = AnonReport.new(anon_report_params)
-
+    @anon_report.coordinate_x = 121.06544942 
+    @anon_report.coordinate_y = 14.65199529
+    @anon_report.classification_id = 1
+    @anon_report.date_issued = DateTime.now()
     respond_to do |format|
       if @anon_report.save
         format.html { redirect_to @anon_report, notice: 'Anon report was successfully created.' }

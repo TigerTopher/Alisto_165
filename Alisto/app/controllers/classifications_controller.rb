@@ -26,7 +26,7 @@ class ClassificationsController < ApplicationController
   # POST /classifications.json
   def create
     @classification = Classification.new(classification_params)
-
+    @classification.syndicate_id = 1
     respond_to do |format|
       if @classification.save
         format.html { redirect_to @classification, notice: 'Classification was successfully created.' }

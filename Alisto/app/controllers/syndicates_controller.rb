@@ -25,7 +25,7 @@ class SyndicatesController < ApplicationController
   # POST /syndicates.json
   def create
     @syndicate = Syndicate.new(syndicate_params)
-
+    @syndicate.report_count = 0
     respond_to do |format|
       if @syndicate.save
         format.html { redirect_to @syndicate, notice: 'Syndicate was successfully created.' }

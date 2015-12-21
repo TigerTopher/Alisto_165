@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221124929) do
+ActiveRecord::Schema.define(version: 20151221140939) do
 
   create_table "anon_reports", force: :cascade do |t|
     t.string   "title"
@@ -33,21 +33,28 @@ ActiveRecord::Schema.define(version: 20151221124929) do
     t.integer  "syndicate_id"
   end
 
+  create_table "contact_people", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "email"
+    t.string   "num"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reports", force: :cascade do |t|
     t.integer  "reporter_id"
     t.string   "title"
     t.decimal  "coordinate_x"
     t.decimal  "coordinate_y"
     t.text     "short_desc"
-    t.text     "full_report"
-    t.datetime "date_issued"
     t.integer  "classification_id"
-    t.integer  "user_id"
+    t.datetime "date_issued"
+    t.text     "full_report"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
-
-  add_index "reports", ["user_id"], name: "index_reports_on_user_id"
 
   create_table "syndicates", force: :cascade do |t|
     t.string   "name"
@@ -55,6 +62,13 @@ ActiveRecord::Schema.define(version: 20151221124929) do
     t.integer  "report_count"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "user_contact_nums", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "num"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
