@@ -237,7 +237,8 @@
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Crime Map</h2>
                     <h3 class="section-subheading text-muted">Be informed of the latest Modi Operandus of the Most Common Crimes.</h3>
-                    <h3 class="section-heading">The red shades indicate areas of reported incidents<br>The darker the shade of an area is, the more reports it had received.</h3>
+                    <h3 class="section-heading">The red shades indicate areas of reported incidents<br>The darker the shade of an area is, the more reports it had received.
+                    <br><br>The green shades indicate area where you can easily find UP Police Security Team.</h3>
                 </div>     
             </div>
         </div>
@@ -828,23 +829,160 @@
 
     var areas = {
         a1: {
-                center: {lat: 14.65510665, lng: 121.06732965},
-                name: "UP Lagoon",
+                center: {lat: 14.656133, lng: 121.071148},
+                name: "I felt nabastos",
                 reports: 3
             },
         a2: {
-                center: {lat: 14.65521823, lng: 121.06860369},
-                name: "Roces St.",
+                center: {lat: 14.658541, lng: 121.067064},
+                name: "Nanakawan ako",
                 reports: 1
             },
         a3: {
-                center: {lat: 14.65611089, lng: 121.06726259},
-                name: "Osmena Avenue",
+                center: {lat: 14.650060, lng: 121.068575},
+                name: "DCS: Naholdap ako sir!",
                 reports: 2
-            }           
-    };
+            },
+        a4: {
+                center: {lat: 14.654648, lng: 121.062359},
+                name: "Na-laglag bala po ako",
+                reports: 3
+            },
+        a5: {
+                center: {lat: 14.649739, lng: 121.064194},
+                name: "Attempted Rape sa akin.",
+                reports: 1
+            },
+        a6: {
+                center: {lat: 14.659364, lng: 121.074076},
+                name: "Upcoming Frat War",
+                reports: 2
+            },
+        a7: {
+                center: {lat: 14.657606, lng: 121.064917},
+                name: "Binentahan ako DoDo Bird",
+                reports: 3
+            },
+        a8: {
+                center: {lat: 14.654912, lng: 121.066328},
+                name: "Witness Drug Pushing",
+                reports: 1
+            },
+        a9: {
+                center: {lat: 14.651809, lng: 121.072612},
+                name: "Nabudol-budol ako :(((",
+                reports: 2
+            },
+        a10: {
+                center: {lat: 14.656829, lng: 121.068816},
+                name: "Vandalism sa Melchor",
+                reports: 3
+            },
+        a11: {
+                center: {lat: 14.653183, lng: 121.070726},
+                name: "May Frat War kanina",
+                reports: 1
+            },
+        a12: {
+                center: {lat: 14.657780, lng: 121.060192},
+                name: "Naholdapan ako",
+                reports: 2
+            },
+        a13: {
+                center: {lat: 14.658477, lng: 121.072647},
+                name: "Binentahan po ako ng Pikachu",
+                reports: 3
+            },
+        a14: {
+                center: {lat: 14.653181, lng: 121.068434},
+                name: "FC Landbank, nanakawan ako",
+                reports: 1
+            },
+        a15: {
+                center: {lat: 14.651505, lng: 121.068511},
+                name: "I'm followed",
+                reports: 2
+            },
+        a16: {
+                center: {lat: 14.6555426, lng: 121.06973827},
+                name: "Beta Way",
+                reports: 2
+            },
+        a17: {
+                center: {lat: 14.65020734, lng: 121.06342971},
+                name: "Village A",
+                reports: 3
+            },
+        a18: {
+                center: {lat: 14.65483159, lng: 121.05951905},
+                name: "University Ave. Laglag Bala",
+                reports: 1
+            },
+        a19: {
+                center: {lat: 14.65356525, lng: 121.05275989},
+                name: "Philcoa Snatchers",
+                reports: 2
+            } 
+    }
 
-    var map;
+    var areas_good = {
+        a20: {
+                center: {lat: 14.64865163, lng: 121.06855139},
+                name: "DCS Guards",
+                reports: 3
+            },
+        a21: {
+                center: {lat: 14.64974543, lng: 121.07153535},
+                name: "Science Complex Guards",
+                reports: 3
+            },
+        a22: {
+                center: {lat: 14.65634963, lng: 121.06969804},
+                name: "Melchor Hall Guards",
+                reports: 3
+            },
+        a23: {
+                center: {lat: 14.65890043, lng: 121.06278062},
+                name: "CHK Guards",
+                reports: 3
+            },
+        a24: {
+                center: {lat: 14.64766681, lng: 121.06432289},
+                name: "KNL Ronda Patrol",
+                reports: 3
+            },
+        a25: {
+                center: {lat: 14.65963219, lng: 121.06979191},
+                name: "Shopping Centre Patrol Team",
+                reports: 3
+            },
+        a26: {
+                center: {lat: 14.65980864, lng: 121.07406199},
+                name: "Dagohoy SSB Patrol",
+                reports: 3
+            },
+        a27: {
+                center: {lat: 14.65860461, lng: 121.07248485},
+                name: "Bantay sa Stall ni Mang Larrys",
+                reports: 3
+            },
+        a28: {
+                center: {lat: 14.65422177, lng: 121.07331902},
+                name: "Vinzons Guards",
+                reports: 3
+            },
+        a29: {
+                center: {lat: 14.65262846, lng: 121.07214421},
+                name: "UPIS",
+                reports: 3
+            },
+        a30: {
+                center: {lat: 14.65223143, lng: 121.06174529},
+                name: "Fine Arts",
+                reports: 3
+            }
+    }
+
     function initMap() {
       var myLatLng = {lat: 14.651989, lng: 121.065445};
       var report = "Hotspot";
@@ -855,12 +993,16 @@
         maxZoom: 21, 
         center: myLatLng }
 
+
       var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+
       var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title: "<%= @points[0].title %>"
+        title: 'UP POLICE'
       });
+
 
       for (var area in areas)
       {
@@ -875,15 +1017,32 @@
               strokeOpacity: 0.35,
               strokeWeight: 0,
               fillColor: '#FF0000',
-              fillOpacity: areas[area].reports * 0.15,
+              fillOpacity: 0.45,
               map: map,
               center: areas[area].center,
               radius: 80
             });
       };
 
-
-
+      for (var area in areas_good)
+      {
+          var report = areas_good[area].name;
+          var marker = new google.maps.Marker({
+            position: areas_good[area].center,
+            map: map,
+            title: report
+            });
+          var cityCircle = new google.maps.Circle({
+              strokeColor: '#00FF00',
+              strokeOpacity: 0.35,
+              strokeWeight: 0,
+              fillColor: '#00FF00',
+              fillOpacity: 0.45,
+              map: map,
+              center: areas_good[area].center,
+              radius: 80
+            });
+      };
 
       var centerControlDiv = document.createElement('div');
       var centerControl = new CenterControl(centerControlDiv, map);
@@ -892,14 +1051,14 @@
       map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
       var cityCircle = new google.maps.Circle({
-          strokeColor: '#FF0000',
+          strokeColor: '#00FF00',
           strokeOpacity: 0.20,
           strokeWeight: 1,
-          fillColor: '#FF0000',
-          fillOpacity: 0.14,
+          fillColor: '#00FF00',
+          fillOpacity: 0.38,
           map: map,
           center: {lat: 14.651989, lng: 121.065445},
-          radius: 40
+          radius: 80
         });
 
     }
@@ -911,3 +1070,4 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK-jjtKtnyP731lxgnwdcfDRFo8HsUtH0&callback=initMap">
     </script>
   </body>
+
