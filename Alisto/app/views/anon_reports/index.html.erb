@@ -17,7 +17,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <%=  link_to "Home", :controller => "static", :action => "index"%>
+                    <%=  link_to "Anonymous Reports", :controller => "anon_reports", :action => "index"%>
+                </li>
+                <li>
+                    <%=  link_to "Crime Classifications", :controller => "classifications", :action => "index"%>
+                </li>
+                <li>
+                    <%=  link_to "Syndicates", :controller => "syndicates", :action => "index"%>
+                </li>
+                <li>
+                    <%=  link_to "Crime Map", :controller => "static", :action => "crime_map"%>
                 </li>
                 <% if logged_in? %>
                     <li><%= link_to "Profile", current_user %></li>
@@ -78,7 +87,7 @@
 
             <td>
             <% if !Classification.where(:id=>anon_report.classification_id).blank? %>
-                <%= link_to anon_report.classification.crime_name, {:controller=>"classifications", :action=>"show", :id => anon_report.classification_id } %>
+                <%= link_to anon_report.classification.crime_name, {:controller=>"classifications", :action=>"show", :id => anon_report.classification_id }, :class=> "btn btn-default", :style=> "width: 100%;"%>
             <% else %>
                 Unclassified
             <% end %>            
@@ -87,7 +96,7 @@
             <td>
             <% if !Classification.where(:id=>anon_report.classification_id).blank? %>
                 <% if !Syndicate.where(:id=>anon_report.classification.syndicate_id).blank? %>     
-                    <%= link_to anon_report.classification.syndicate.name, {:controller=>"syndicates", :action=>"show", :id => anon_report.classification.syndicate_id } %>
+                    <%= link_to anon_report.classification.syndicate.name, {:controller=>"syndicates", :action=>"show", :id => anon_report.classification.syndicate_id }, :class=> "btn btn-default", :style=> "width: 100%;" %>
                     <% end %>
             <% else %>
                 Unassociated
@@ -111,9 +120,9 @@
             </td>
             <td><%= anon_report.short_desc %></td>
             <td><%= anon_report.full_report%></td>
-            <td><%= link_to 'Show Full', anon_report %></td>
-            <td><%= link_to 'Edit', edit_anon_report_path(anon_report) %></td>
-            <td><%= link_to 'Destroy', anon_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Show Full', anon_report, :class=> "btn btn-default", :style=> "width: 100%;"%></td>
+            <td><%= link_to 'Edit', edit_anon_report_path(anon_report), :class=> "btn btn-default", :style=> "width: 100%;"%></td>
+            <td><%= link_to 'Destroy', anon_report, method: :delete, data: { confirm: 'Are you sure?' }, :class=> "btn btn-default", :style=> "width: 100%;"%></td>
           </tr>
         <% end %>
       </tbody>

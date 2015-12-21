@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  resources :user_contact_nums
+  resources :contact_people
+  resources :reports
   resources :syndicates
   resources :classifications
   resources :anon_reports
   get 'sessions/new'
-
-  resources :users
+  resources :users do
+    end
   
   get 'static/index'
   get 'static/crime_map'

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reporter:</strong>
+  <%= @report.reporter_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @report.title %>
+</p>
+
+<p>
+  <strong>Coordinate x:</strong>
+  <%= @report.coordinate_x %>
+</p>
+
+<p>
+  <strong>Coordinate y:</strong>
+  <%= @report.coordinate_y %>
+</p>
+
+<p>
+  <strong>Short desc:</strong>
+  <%= @report.short_desc %>
+</p>
+
+<p>
+  <strong>Classification:</strong>
+  <%= @report.classification_id %>
+</p>
+
+<p>
+  <strong>Date issude:</strong>
+  <%= @report.date_issude %>
+</p>
+
+<p>
+  <strong>Full report:</strong>
+  <%= @report.full_report %>
+</p>
+
+<%= link_to 'Edit', edit_report_path(@report) %> |
+<%= link_to 'Back', reports_path %>

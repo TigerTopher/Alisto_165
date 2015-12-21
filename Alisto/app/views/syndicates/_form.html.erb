@@ -1,6 +1,6 @@
 <%= form_for(@syndicate) do |f| %>
   <% if @syndicate.errors.any? %>
-    <div id="error_explanation">
+  <div id="error_explanation" style="width: 100%">
       <h2><%= pluralize(@syndicate.errors.count, "error") %> prohibited this syndicate from being saved:</h2>
 
       <ul>

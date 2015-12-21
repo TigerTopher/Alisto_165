@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reporter_id: 1
+  title: MyString
+  coordinate_x: 9.99
+  coordinate_y: 9.99
+  short_desc: MyText
+  classification_id: 1
+  date_issude: 2015-12-21 22:01:43
+  full_report: MyText
+
+two:
+  reporter_id: 1
+  title: MyString
+  coordinate_x: 9.99
+  coordinate_y: 9.99
+  short_desc: MyText
+  classification_id: 1
+  date_issude: 2015-12-21 22:01:43
+  full_report: MyText

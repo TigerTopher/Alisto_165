@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221030731) do
+ActiveRecord::Schema.define(version: 20151221124929) do
 
   create_table "anon_reports", force: :cascade do |t|
     t.string   "title"
@@ -32,6 +32,22 @@ ActiveRecord::Schema.define(version: 20151221030731) do
     t.datetime "updated_at",    null: false
     t.integer  "syndicate_id"
   end
+
+  create_table "reports", force: :cascade do |t|
+    t.integer  "reporter_id"
+    t.string   "title"
+    t.decimal  "coordinate_x"
+    t.decimal  "coordinate_y"
+    t.text     "short_desc"
+    t.text     "full_report"
+    t.datetime "date_issued"
+    t.integer  "classification_id"
+    t.integer  "user_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "reports", ["user_id"], name: "index_reports_on_user_id"
 
   create_table "syndicates", force: :cascade do |t|
     t.string   "name"

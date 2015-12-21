@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 	                uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 }
-
+	has_many :reports
 	def init
 	  self.reports_issued  ||= 0           #will set the default value only if it's nil
 	end

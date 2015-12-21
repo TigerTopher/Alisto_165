@@ -135,14 +135,14 @@
             <div class="row text-center">
                 <div class="col-lg-4">
                     <h4 class="section-subheading text-muted" style="color: #333;">Fill up the form and we'll contact you in no time!</h4>
-                    <br>
+                    <hr>
                     <%=link_to "View Anonymous Reports",  {:controller => "anon_reports", :action => "index"}, :class=>"btn btn-xl", :style=> "width: 100%;"%>
                     <br>
                     <br>
-                    <%=link_to "View All Reports",  {:controller => "syndicates", :action => "index"}, :class=>"btn btn-xl-report", :style=> "width: 100%"%>
-                    <br>
-                    <br>
                     <%=link_to "View Crime Classifications",  {:controller => "classifications", :action => "index"}, :class=>"btn btn-xl-report", :style=> "width: 100%;"%>
+                    <br>
+                    <br>
+                    <%=link_to "View Syndicates",  {:controller => "syndicates", :action => "index"}, :class=>"btn btn-xl-report", :style=> "width: 100%"%>
                 </div>
 
                 <div class="col-lg-8" style="border-left: 1px solid #555; border-width:5px; ">

@@ -1,4 +1,47 @@
 <% provide(:title, "Crime Classifications") %>
+<nav class="navbar navbar-default navbar-fixed-top" class="bg-light-gray">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="../static/index">Alisto: UP Diliman</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <%=  link_to "Anonymous Reports", :controller => "anon_reports", :action => "index"%>
+                </li>
+                <li>
+                    <%=  link_to "Crime Classifications", :controller => "classifications", :action => "index"%>
+                </li>
+                <li>
+                    <%=  link_to "Syndicates", :controller => "syndicates", :action => "index"%>
+                </li>
+                <li>
+                    <%=  link_to "Crime Map", :controller => "static", :action => "crime_map"%>
+                </li>
+                <% if logged_in? %>
+                    <li><%= link_to "Profile", current_user %></li>
+                    <li class="divider"></li>
+                    <li>
+                    <%= link_to "Log out", logout_path, method: "delete" %>
+                    </li>
+                <% else %>
+                    <li><%=  link_to "Signup", :controller => "users", :action => "new"%></li>
+                <% end %>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
 <p id="notice"><%= notice %></p>
 <section class="bg-light-gray">
 <div class="row text-center">
@@ -15,7 +58,7 @@
   <br>
   <br>
   <br>
-  <h4 class="section-subheading text-muted" style="color: #333; text-align: center;">Note: You can click the values of classification or the values of the syndicates to learn more about them.</h4>
+  <h4 class="section-subheading text-muted" style="color: #333; text-align: center;">Note: You can click the values of the syndicates to learn more about them.</h4>
   </div>
   <div class="col-lg-9" style="border-left: 1px solid #555; border-width:2px; ">
   <p id="notice"><%= notice %></p>
@@ -38,22 +81,22 @@
             <td>
             <% if !Classification.where(:id=>classification.id).blank? %>
                 <% if !Syndicate.where(:id=>classification.syndicate_id).blank? %>     
-                    <%= link_to classification.syndicate.name, {:controller=>"syndicates", :action=>"show", :id => classification.syndicate_id } %>
+                    <%= link_to classification.syndicate.name, {:controller=>"syndicates", :action=>"show", :id => classification.syndicate_id }, :class=> "btn btn-default", :style=> "width: 100%;" %>
                     <% end %>
             <% else %>
                 Unassociated
             <% end %> 
 
             </td>
-          <td><%= link_to 'Show', classification %></td>
-          <td><%= link_to 'Edit', edit_classification_path(classification) %></td>
-          <td><%= link_to 'Destroy', classification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', classification, :class=> "btn btn-default", :style=> "width: 100%;" %></td>
+          <td><%= link_to 'Edit', edit_classification_path(classification), :class=> "btn btn-default", :style=> "width: 100%;" %></td>
+          <td><%= link_to 'Destroy', classification, method: :delete, data: { confirm: 'Are you sure?' }, :class=> "btn btn-default", :style=> "width: 100%;" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
   <br>
-  <%= link_to 'New Classification', new_classification_path, :class=> "btn btn-xl"   %>
+  <%= link_to 'New Classification +', new_classification_path, :class=> "btn btn-xl"   %>
   </div>
 </div>
 </section>
