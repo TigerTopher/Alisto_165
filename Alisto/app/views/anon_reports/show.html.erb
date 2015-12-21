@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @anon_report.title %>
+</p>
+
+<p>
+  <strong>Coordinate x:</strong>
+  <%= @anon_report.coordinate_x %>
+</p>
+
+<p>
+  <strong>Coordinate y:</strong>
+  <%= @anon_report.coordinate_y %>
+</p>
+
+<p>
+  <strong>Short desc:</strong>
+  <%= @anon_report.short_desc %>
+</p>
+
+<p>
+  <strong>Classification:</strong>
+  <%= @anon_report.classification %>
+</p>
+
+<p>
+  <strong>Date issued:</strong>
+  <%= @anon_report.date_issued %>
+</p>
+
+<p>
+  <strong>Full report:</strong>
+  <%= @anon_report.full_report %>
+</p>
+
+<%= link_to 'Edit', edit_anon_report_path(@anon_report) %> |
+<%= link_to 'Back', anon_reports_path %>

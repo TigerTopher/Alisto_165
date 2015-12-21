@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220084604) do
+ActiveRecord::Schema.define(version: 20151221022323) do
+
+  create_table "anon_reports", force: :cascade do |t|
+    t.string   "title"
+    t.decimal  "coordinate_x"
+    t.decimal  "coordinate_y"
+    t.text     "short_desc"
+    t.integer  "classification"
+    t.datetime "date_issued"
+    t.text     "full_report"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "fname"

@@ -10,8 +10,9 @@ CREATE TABLE Alisto.Users
     contact_person INT null,
     reports_issued INT not null DEFAULT 0,
     PRIMARY KEY (id),
-    INDEX fname (fname ASC),
-    INDEX lname (lname ASC),
+    -- INDEX fname (fname ASC),
+    INDEX lname (lname ASC, fname ASC),
+    INDEX username (username ASC),
     UNIQUE (username) 
 )engine=innodb;
 --contact_no (multivalued. see table Alisto.UserContactNum)
