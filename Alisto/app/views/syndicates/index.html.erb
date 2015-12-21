@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Syndicates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Overview</th>
+      <th>Report count</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @syndicates.each do |syndicate| %>
+      <tr>
+        <td><%= syndicate.name %></td>
+        <td><%= syndicate.overview %></td>
+        <td><%= syndicate.report_count %></td>
+        <td><%= link_to 'Show', syndicate %></td>
+        <td><%= link_to 'Edit', edit_syndicate_path(syndicate) %></td>
+        <td><%= link_to 'Destroy', syndicate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Syndicate', new_syndicate_path %>

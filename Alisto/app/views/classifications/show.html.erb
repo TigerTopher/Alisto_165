@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Crime name:</strong>
+  <%= @classification.crime_name %>
+</p>
+
+<p>
+  <strong>Crime details:</strong>
+  <%= @classification.crime_details %>
+</p>
+
+<%= link_to 'Edit', edit_classification_path(@classification) %> |
+<%= link_to 'Back', classifications_path %>

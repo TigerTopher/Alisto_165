@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @syndicate.name %>
+</p>
+
+<p>
+  <strong>Overview:</strong>
+  <%= @syndicate.overview %>
+</p>
+
+<p>
+  <strong>Report count:</strong>
+  <%= @syndicate.report_count %>
+</p>
+
+<%= link_to 'Edit', edit_syndicate_path(@syndicate) %> |
+<%= link_to 'Back', syndicates_path %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :syndicates
+  resources :classifications
   resources :anon_reports
   get 'sessions/new'
 
