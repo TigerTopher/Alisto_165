@@ -52,4 +52,6 @@ ActiveRecord::Schema.define(version: 20151221030731) do
     t.string   "password_digest"
   end
 
+  add_index "users", ["lname", "fname"], name: "index_users_on_lname_and_fname"
+
 end

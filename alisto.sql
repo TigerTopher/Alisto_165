@@ -52,7 +52,7 @@ CREATE TABLE Alisto.AnonReport
     id INT UNSIGNED not null AUTO_INCREMENT,
     title VARCHAR(25) not null,
     -- area INT not null,
-    coordinate_x DECIMAL(11,8) NULL, 
+    coordinate_x DECIMAL(11,8) NULL,
     coordinate_y DECIMAL(10,8) NULL,
     short_desc TEXT null,
     classification INT not null,
@@ -62,10 +62,6 @@ CREATE TABLE Alisto.AnonReport
     INDEX date_issued (date_issued DESC),
     -- INDEX area (area ASC)
 )engine=innodb;
-
-
-
-
 
 
 -- May Foreign keys dapat ito. Di mag-eexist ang report kung wala namang reporter. Kung wlang reporter, then Anonymous report siya...
