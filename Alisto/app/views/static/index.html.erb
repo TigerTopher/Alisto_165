@@ -855,16 +855,12 @@
         maxZoom: 21, 
         center: myLatLng }
 
-
       var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-
       var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title: 'UP POLICE'
+        title: "<%= @points[0].title %>"
       });
-
 
       for (var area in areas)
       {
@@ -885,6 +881,10 @@
               radius: 80
             });
       };
+
+
+
+
       var centerControlDiv = document.createElement('div');
       var centerControl = new CenterControl(centerControlDiv, map);
 
