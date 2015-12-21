@@ -9,6 +9,15 @@
   <strong>Crime details:</strong>
   <%= @classification.crime_details %>
 </p>
-
+<h2>anon_reports</h2>
+<% @classification.anon_report.each do |anon_report| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= anon_report.title %>
+  </p>
+ 
+  <p>
+  </p>
+<% end %>
 <%= link_to 'Edit', edit_classification_path(@classification) %> |
 <%= link_to 'Back', classifications_path %>
