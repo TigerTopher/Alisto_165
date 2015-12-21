@@ -1,21 +1,19 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Unknown - 4
+Salisi Sa UP Gang - 2
+DCS Holdappers - 3
+Laglag Bala - 1
+SXY Frat - 2
+Team Rocket - 2
+Roller-coaster - 1
+Budol-budol Gang - 1
 
-# Populate users...
-User.create(fname: "Christopher", lname: "Vizcarra", username: "cnvizcarra", email: "christov9999@example.com", password: "hullobeh", password_confirmation:"hullobeh", reports_issued: 0)
-User.create(fname: "Rianna", lname: "Dela Cruz", username: "rccruz", email: "cutenitoph@example.com", password: "tophmyloves", password_confirmation:"tophmyloves", reports_issued: 0)
-User.create(fname: "Kobe", lname: "Bryant", username: "KobeKobez", email: "kobe@gmail.com", password: "jordanisweak", password_confirmation:"jordanisweak", reports_issued: 0)
-User.create(fname: "Ivan", lname: "Macababayao", username: "ivanmacabs", email: "ivanmacabs@example.com", password: "lolomopraning", password_confirmation:"lolomopraning", reports_issued: 0)
-User.create(fname: "Tony", lname: "Parker", username: "tparker", email: "tonyparker@spurs.com", password: "spurs143", password_confirmation:"spurs143", reports_issued: 0)
-User.create(fname: "John", lname: "Cena", username: "johncena", email: "jc@example.com", password: "youcantseeme", password_confirmation:"youcantseeme", reports_issued: 0)
-User.create(fname: "Michael", lname: "Villar", username: "michaelv", email: "mv@example.com", password: "qaws1q2w", password_confirmation:"qaws1q2w", reports_issued: 0)
 
-# Populate Anonymous Reports
+
+
+
+
+
+
 AnonReport.create(title:"I felt nabastos", coordinate_x: 121.071148, coordinate_y: 14.656133, short_desc:"May nangbastos sa akin na dalawang kalalakihan.", classification_id: 1, date_issued: DateTime.now(), full_report: "Nung papunta ako sa Melchor, may dalawang lalaki na joggers ata sila na nangbastos sa akin. Sabi nila pangit daw ako pero maganda katawan. Hipon daw. Sana laging may UP SSB malapit sa oval. Madilim kasi sa side ng Engg.")
 AnonReport.create(title:"Nanakawan ako", coordinate_x: 14.658541, coordinate_y: 121.067064, short_desc:"Nanakawan ako malapit sa Area 2. Balagtas street ser.", classification_id: 8, date_issued: DateTime.now(), full_report: "Umihi lang ako saglit ser. Sigurado po ako salisi gang iyon")
 AnonReport.create(title:"DCS: Naholdap ako sir!", coordinate_x: 14.650060, coordinate_y: 121.068575, short_desc:"Naholdap po ako sa entrance ng DCS", classification_id: 11, date_issued: DateTime.now(), full_report: "Nakita ko po. May limang sumunod sa akin. Naka DCS shirt po sila. Sila na po ata yung DCS holdappers. Tinutukan po ako ng keyboard at sinabing magkakacomputer virus daw ako. Ayun. Sumunod na lang ako para safe.")
@@ -47,11 +45,11 @@ Classification.create(crime_name: "Holdap", crime_details: "A robbery conducted 
 
 # Populate Syndicates / Groups
 
-Syndicate.create(name: "Unknown", overview: "There are currently no data about the syndicate or group behind this.", report_count: 4)
-Syndicate.create(name: "SXY Frat", overview: "This is a notorious fraternity that are mostly UP Engineering students. Reports were usually harrassing old people and breaking things around the campus..", report_count: 2)
-Syndicate.create(name: "DCS Holdappers", overview: "This is a  Reports were usually holdapping UP students near Department of Computer Science.", report_count: 3)
-Syndicate.create(name: "Laglag Bala Gang", overview: "This is notorious gang that plants bullets on jeepneys as they enter UP checkpoint.", report_count: 1)
-Syndicate.create(name: "Salisi sa UP Gang", overview: "They dress up looking as students and professors to get entry to UP buildings. Once granted access inside the building, they steal things left by students", report_count: 2)
-Syndicate.create(name: "Team Rocket", overview: "This is just a fresh syndicate that sells exotic animals inside UP.", report_count: 2)
-Syndicate.create(name: "Roller-coaster Gang", overview: "These are young individuals that can be seen walking around the Academic Oval eating chips. But in actuality, drugs are hidden inside the chips container. They sell it around UP at night.", report_count: 1)
-Syndicate.create(name: "Budol-Budol Gang", overview: "These gang has been notorious especially in the Physics Area. They talk to their victims in a friendly manner. Once they get your trust, then they can get your valuables. It's as if you were hypnotized.", report_count: 1)
+Syndicate.create(name: "Unknown", overview: "There are currently no data about the syndicate or group behind this.", report_count: 0)
+Syndicate.create(name: "SXY Frat", overview: "This is a notorious fraternity that are mostly UP Engineering students. Reports were usually harrassing old people and breaking things around the campus..", report_count: 0)
+Syndicate.create(name: "DCS Holdappers", overview: "This is a  Reports were usually holdapping UP students near Department of Computer Science.", report_count: 0)
+Syndicate.create(name: "Laglag Bala Gang", overview: "This is notorious gang that plants bullets on jeepneys as they enter UP checkpoint.", report_count: 0)
+Syndicate.create(name: "Salisi sa UP Gang", overview: "They dress up looking as students and professors to get entry to UP buildings. Once granted access inside the building, they steal things left by students", report_count: 0)
+Syndicate.create(name: "Team Rocket", overview: "This is just a fresh syndicate that sells exotic animals inside UP.", report_count: 0)
+Syndicate.create(name: "Roller-coaster Gang", overview: "These are young individuals that can be seen walking around the Academic Oval eating chips. But in actuality, drugs are hidden inside the chips container. They sell it around UP at night.", report_count: 0)
+Syndicate.create(name: "Budol-Budol Gang", overview: "These gang has been notorious especially in the Physics Area. They talk to their victims in a friendly manner. Once they get your trust, then they can get your valuables. It's as if you were hypnotized.", report_count: 0)

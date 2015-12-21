@@ -1,5 +1,4 @@
 <% provide(:title, "Crime Classifications") %>
-
 <p id="notice"><%= notice %></p>
 <section class="bg-light-gray">
 <div class="row text-center">
@@ -24,10 +23,10 @@
   <table class="table table-striped" >
     <thead>
       <tr>
-        <th>Crime name</th>
-        <th>Crime details</th>
-        <th>Associated Syndicates</th>
-        <th colspan="3">Actions</th>
+        <th style="text-align: center;"> Crime name</th>
+        <th style="text-align: center;"> Crime details</th>
+        <th style="text-align: center;"> Associated Syndicates</th>
+        <th style="text-align: center;" colspan="3">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -35,7 +34,17 @@
         <tr>
           <td><%= classification.crime_name %></td>
           <td><%= classification.crime_details %></td>
-          <td>APB</td>
+
+            <td>
+            <% if !Classification.where(:id=>classification.id).blank? %>
+                <% if !Syndicate.where(:id=>classification.syndicate_id).blank? %>     
+                    <%= link_to classification.syndicate.name, {:controller=>"syndicates", :action=>"show", :id => classification.syndicate_id } %>
+                    <% end %>
+            <% else %>
+                Unassociated
+            <% end %> 
+
+            </td>
           <td><%= link_to 'Show', classification %></td>
           <td><%= link_to 'Edit', edit_classification_path(classification) %></td>
           <td><%= link_to 'Destroy', classification, method: :delete, data: { confirm: 'Are you sure?' } %></td>

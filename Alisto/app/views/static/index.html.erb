@@ -793,21 +793,103 @@
 
     <!-- Google Map Code -->
     <script type="text/javascript">
+    var police = {lat: 14.65199529, lng: 121.06544942};
+
+    function CenterControl(controlDiv, map) {
+      // Set CSS for the control border.
+      var controlUI = document.createElement('div');
+      controlUI.style.backgroundColor = '#fff';
+      controlUI.style.border = '2px solid #fff';
+      controlUI.style.borderRadius = '3px';
+      controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+      controlUI.style.cursor = 'pointer';
+      controlUI.style.marginBottom = '22px';
+      controlUI.style.textAlign = 'center';
+      controlUI.title = 'Click to recenter UP Police Station';
+      controlDiv.appendChild(controlUI);
+
+      // Set CSS for the control interior.
+      var controlText = document.createElement('div');
+      controlText.style.color = 'rgb(25,25,25)';
+      controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+      controlText.style.fontSize = '16px';
+      controlText.style.lineHeight = '38px';
+      controlText.style.paddingLeft = '5px';
+      controlText.style.paddingRight = '5px';
+      controlText.innerHTML = 'Show Police Station';
+      controlUI.appendChild(controlText);
+
+      // Setup the click event listeners: simply set the map to Chicago.
+      controlUI.addEventListener('click', function() {
+        map.setCenter(police);
+        map.setZoom(18);
+      });
+    }
+
+    var areas = {
+        a1: {
+                center: {lat: 14.65510665, lng: 121.06732965},
+                name: "UP Lagoon",
+                reports: 3
+            },
+        a2: {
+                center: {lat: 14.65521823, lng: 121.06860369},
+                name: "Roces St.",
+                reports: 1
+            },
+        a3: {
+                center: {lat: 14.65611089, lng: 121.06726259},
+                name: "Osmena Avenue",
+                reports: 2
+            }           
+    };
+
+    var map;
     function initMap() {
       var myLatLng = {lat: 14.651989, lng: 121.065445};
       var report = "Hotspot";
+
       var mapOptions = {
-        zoom: 19,
+        zoom: 16,
         minZoom: 16,
         maxZoom: 21, 
         center: myLatLng }
+
+
       var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
 
       var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
         title: 'UP POLICE'
       });
+
+
+      for (var area in areas)
+      {
+          var report = areas[area].name;
+          var marker = new google.maps.Marker({
+            position: areas[area].center,
+            map: map,
+            title: report
+            });
+          var cityCircle = new google.maps.Circle({
+              strokeColor: '#FF0000',
+              strokeOpacity: 0.35,
+              strokeWeight: 0,
+              fillColor: '#FF0000',
+              fillOpacity: areas[area].reports * 0.15,
+              map: map,
+              center: areas[area].center,
+              radius: 80
+            });
+      };
+      var centerControlDiv = document.createElement('div');
+      var centerControl = new CenterControl(centerControlDiv, map);
+
+      centerControlDiv.index = 1;
+      map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
       var cityCircle = new google.maps.Circle({
           strokeColor: '#FF0000',
