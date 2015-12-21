@@ -1,0 +1,8 @@
+<li id="anon_report-<%= anon_report.id %>">
+  <%= link_to gravatar_for(anon_report.classification, size: 50), anon_report.classification %>
+  <span class="classification"><%= link_to anon_report.classification.crime_name, anon_report.classification %></span>
+  <span><%= anon_report.title %></span>
+  <span>
+    Posted <%= time_ago_in_words(anon_report.date_issued) %> ago.
+  </span>
+</li>
